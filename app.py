@@ -28,7 +28,7 @@ client = None
 db = None
 
 if MONGODB_URI:
-    client = MongoClient(MONGODB_URI)
+    client = MongoClient(MONGODB_URI, tlsCAFile=certifi.where())
     db = client[DB_NAME]
 
 app.add_middleware(
