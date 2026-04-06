@@ -7,3 +7,4 @@ joblib
 pymongo
 python-dotenv
 certifi
+xgboost
