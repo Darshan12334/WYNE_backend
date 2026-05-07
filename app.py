@@ -191,8 +191,8 @@ def log_activity(data: ActivityLog):
 @app.get("/admin/logs")
 def get_admin_logs(admin_email: str):
     admin_emails_env = os.environ.get("ADMIN_EMAIL", "darshansingh8270@gmail.com,arjunalearns@gmail.com,princesapariya108@gmail.com")
-    admin_emails = [email.strip() for email in admin_emails_env.split(",")]
-    if admin_email not in admin_emails:
+    admin_emails = [email.strip().lower() for email in admin_emails_env.split(",")]
+    if admin_email.lower() not in admin_emails:
         return {"logs": [], "error": "Unauthorized"}
         
     if db is None:
